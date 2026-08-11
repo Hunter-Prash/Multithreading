@@ -6,20 +6,21 @@ Creating threads
 Thread
 Runnable
 start() vs run()
-Thread coordination
+Thread lifecycle
 sleep()
 join()
 interrupt()
+
+--------------------------------------------
 Race conditions
-Shared counter
-See the bug happen
-Fix it with synchronized
-Locks
 synchronized
+Locks
 ReentrantLock
 Thread communication
 wait()
 notify()
+---------------------------------------------
+
 Producer–Consumer
 Executor framework
 ExecutorService
