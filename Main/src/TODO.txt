@@ -16,6 +16,7 @@ Race conditions
 synchronized
 Locks
 ReentrantLock
+volatile
 Thread communication
 wait()
 notify()
@@ -26,12 +27,16 @@ Executor framework
 ExecutorService
 Fixed thread pool
 Callable + Future
+
+----------------------------------------------
 Modern concurrency
 CompletableFuture
 Concurrent collections
 AtomicInteger
 CountDownLatch
 Semaphore
+
+-------------------------------------------------
 Real backend-style exercise
 Multiple threads processing incoming jobs
 Shared database-like resource
