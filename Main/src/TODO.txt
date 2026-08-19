@@ -1,4 +1,4 @@
-Multithreading Hands-on — Level 1
+Multithreading Hands-on
 
 We'll build progressively:
 
@@ -18,10 +18,10 @@ Locks
 ReentrantLock
 volatile
 Thread communication
+
+---------------------------------------------
 wait()
 notify()
----------------------------------------------
-
 Producer–Consumer
 Executor framework
 ExecutorService
@@ -35,7 +35,6 @@ Concurrent collections
 AtomicInteger
 CountDownLatch
 Semaphore
-
 -------------------------------------------------
 Real backend-style exercise
 Multiple threads processing incoming jobs
