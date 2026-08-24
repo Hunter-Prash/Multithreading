@@ -23,8 +23,6 @@ Thread communication
 wait()
 notify()
 Producer–Consumer
-
-
 Executor framework
 ExecutorService
 Fixed thread pool
