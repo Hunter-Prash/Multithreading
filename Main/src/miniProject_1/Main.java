@@ -12,7 +12,7 @@ public class Main {
         Thread producer= new Thread(jobProducer,"producer");
         Thread consumer=new Thread(jobConsumer,"consumer");
 
-        producer.start();
+        producer.start();//makes a thread runnable, not running.Doesn't mean producer runs immediately.
         consumer.start();
 
         producer.join();

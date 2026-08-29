@@ -12,10 +12,18 @@ public class JobConsumer implements Runnable{
     public void run(){
 
         for(int i=1;i<=10;i++){
-            Job job=queue.remove();
-            System.out.println(
-                    Thread.currentThread().getName()
-                            + " consumed Job-" + job.getId());
+            synchronized (queue) {
+                if (queue.isEmpty()) {
+                    try {
+                        queue.wait();//after getting notified executions starts from the next line
+                    } catch (InterruptedException e) {
+                        throw new RuntimeException(e);
+                    }
+                }
+                Job j = queue.remove();
+                System.out.println("removed: " + j);
+            }
+
         }
     }
 }

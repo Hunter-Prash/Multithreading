@@ -27,9 +27,9 @@ public class ProducerConsumer {
 
                 synchronized (queue) {
 
-                    while (queue.isEmpty()) {//After waking, re-check the condition before consuming. Never assume that being awakened means the condition is now true.
+                    while (queue.isEmpty()) {
                         try {
-                            queue.wait();//pause here and release lock..thread remains suspended unless it is notified/interrupted
+                            queue.wait();//pause here and release lock..after getting notified executions starts from the next line...thread remains suspended unless it is notified/interrupted
                         } catch (InterruptedException e) {
                             throw new RuntimeException(e);
                         }
