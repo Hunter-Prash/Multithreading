@@ -1,22 +1,28 @@
 package miniProject_1;
 import java.util.LinkedList;
 import java.util.Queue;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
 
 public class Main {
     static Queue<Job> queue = new LinkedList<>();
-    static void main() throws InterruptedException{
+    static void main() throws InterruptedException, ExecutionException {
 
         JobProducer jobProducer=new JobProducer(queue);
         JobConsumer jobConsumer=new JobConsumer(queue);
 
-        Thread producer= new Thread(jobProducer,"producer");
-        Thread consumer=new Thread(jobConsumer,"consumer");
+        ExecutorService executor= Executors.newFixedThreadPool(2);
 
-        producer.start();//makes a thread runnable, not running.Doesn't mean producer runs immediately.
-        consumer.start();
+        Future<?>f1=executor.submit(jobProducer);
+        Future<?>f2=executor.submit(jobConsumer);
 
-        producer.join();
-        consumer.join();
+        f1.get();
+        f2.get();
         System.out.println("-------------------");
+
+        executor.shutdown();
+
     }
 }

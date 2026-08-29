@@ -21,7 +21,7 @@ public class JobConsumer implements Runnable{
                     }
                 }
                 Job j = queue.remove();
-                System.out.println("removed: " + j);
+                System.out.println("removed: " + j.toString());
             }
 
         }
