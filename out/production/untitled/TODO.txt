@@ -27,6 +27,7 @@ Executor framework
 ExecutorService
 Callable + Future
 
+-mini-proj-1
 ----------------------------------------------
 MODULE-3 Modern concurrency
 
@@ -35,6 +36,8 @@ CompletableFuture
 Concurrent collections
 CountDownLatch
 Semaphore
+
+-mini-proj-2
 -------------------------------------------------
 
 MODULE-4
