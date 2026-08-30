@@ -1,6 +1,6 @@
-Multithreading Hands-on
+Multithreading Hands-on We'll build progressively:
 
-We'll build progressively:
+MODULE-1
 
 Creating threads
 Thread
@@ -12,31 +12,39 @@ join()
 interrupt()
 
 --------------------------------------------
+MODULE-2
+
 Race conditions
 synchronized
 Locks
 ReentrantLock
 volatile
 Thread communication
-
----------------------------------------------
 wait()
 notify()
 Producer–Consumer
 Executor framework
 ExecutorService
-Fixed thread pool
 Callable + Future
 
+-mini-proj-1
 ----------------------------------------------
-Modern concurrency
+MODULE-3 Modern concurrency
+
+AtomicInteger
 CompletableFuture
 Concurrent collections
-AtomicInteger
 CountDownLatch
 Semaphore
+
+-mini-proj-2
 -------------------------------------------------
+
+MODULE-4
+
 Real backend-style exercise
 Multiple threads processing incoming jobs
 Shared database-like resource
 Thread pool + synchronization + failure handling
+
+----------------------------------------------------------------------------------------------------
