@@ -1,20 +1,19 @@
 package miniProject_2;
 
-import java.util.concurrent.BlockingQueue;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.*;
 
 public class Main {
-    static void main() {
+    static void main() throws InterruptedException {
 
         //initialize the queue (shared state)
-        BlockingQueue<Integer>queue=new LinkedBlockingQueue<>(100);
-
+        BlockingQueue<Integer>queue=new LinkedBlockingQueue<>(20);
         ExecutorService executor= Executors.newFixedThreadPool(5);//1 producer 4 workers
+        CountDownLatch latch = new CountDownLatch(4);//latch to ensure all 4 consumers finish before main terminates
+
+        SharedDB s=new SharedDB();
 
         JobProducer jp=new JobProducer(queue);
-        JobConsumer jc=new JobConsumer(queue);
+        JobConsumer jc=new JobConsumer(queue,latch,s);
 
         executor.execute(jp);
 
@@ -22,6 +21,8 @@ public class Main {
             executor.execute(jc);
         }
 
+        latch.await();
+        System.out.println(s.getJobs());
         executor.shutdown();
 
     }

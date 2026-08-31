@@ -13,11 +13,16 @@ public class JobProducer implements Runnable{
 
     @Override
     public void run(){
-        for(int i=1;i<=100;i++){
+        for(int i=1;i<=20;i++){
             try {
                 Job j=new Job(i);
                 queue.put(i);
                 System.out.println("Produced: " + j.getId());
+                if(i==20){
+                    for(int x=1;x<=4;x++){
+                        queue.put(-1);
+                    }
+                }
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
