@@ -8,12 +8,12 @@ public class Main {
         //initialize the queue (shared state)
         BlockingQueue<Integer>queue=new LinkedBlockingQueue<>(20);
         ExecutorService executor= Executors.newFixedThreadPool(5);//1 producer 4 workers
-        CountDownLatch latch = new CountDownLatch(4);//latch to ensure all 4 consumers finish before main terminates
-
+        CountDownLatch latch = new CountDownLatch(5);//latch to ensure all 4 consumers finish before main terminates
+        Semaphore semaphore=new Semaphore(2);
         SharedDB s=new SharedDB();
 
-        JobProducer jp=new JobProducer(queue);
-        JobConsumer jc=new JobConsumer(queue,latch,s);
+        JobProducer jp=new JobProducer(queue,latch);
+        JobConsumer jc=new JobConsumer(queue,latch,s,semaphore);
 
         executor.execute(jp);
 
@@ -21,9 +21,12 @@ public class Main {
             executor.execute(jc);
         }
 
-        latch.await();
-        System.out.println(s.getJobs());
-        executor.shutdown();
+        latch.await();//main waits till all 5 worker threads have completed
+
+        System.out.println("Jobs Processed: "+s.getProcessedJobs());
+
+        //graceful shutdown
+        executor.shutdown();//executor service itself shutdown
 
     }
 }

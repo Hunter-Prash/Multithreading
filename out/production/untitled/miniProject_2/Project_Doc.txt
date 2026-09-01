@@ -116,10 +116,6 @@ Concepts reinforced:
 - BlockingQueue
 - Semaphore
 - CountDownLatch
-- Blocking behavior
-- Resource limiting
-- Concurrent state management
-
 
 PHASE 4 — FAILURE HANDLING, COMPLETION & GRACEFUL SHUTDOWN
 -----------------------------------------------------------
@@ -217,20 +213,3 @@ FINAL PROJECT FLOW
           Graceful Shutdown
 
 
-BUILDING RULE
--------------
-
-We will build the project progressively.
-
-For each phase:
-1. Build the smallest working version.
-2. Run it.
-3. Observe the thread behavior/output.
-4. Introduce the next concurrency requirement.
-5. Apply the appropriate mechanism.
-6. Test again.
-7. Move to the next phase.
-
-The purpose is not just to finish a project. The purpose is to reinforce the concepts from Modules 1–3 by seeing how they fit together in a realistic backend-style workflow.
-
-CompletableFuture is intentionally excluded from this project for now and will be studied separately later.

@@ -116,10 +116,6 @@ Concepts reinforced:
 - BlockingQueue
 - Semaphore
 - CountDownLatch
-- Blocking behavior
-- Resource limiting
-- Concurrent state management
-
 
 PHASE 4 — FAILURE HANDLING, COMPLETION & GRACEFUL SHUTDOWN
 -----------------------------------------------------------

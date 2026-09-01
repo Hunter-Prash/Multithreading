@@ -1,19 +1,16 @@
 package miniProject_2;
 
-import miniProject_1.Job;
-
-import java.util.HashMap;
-import java.util.Map;
+import java.util.concurrent.Semaphore;
 
 public class SharedDB {
-    Map<Integer, String> jobs = new HashMap<>();
+    int processedJobs=0;
 
-    public Map<Integer, String> getJobs() {
-        return jobs;
+
+    public synchronized void setProcessedJobs(){
+        processedJobs++;
     }
 
-    public void saveJob(int value){
-        //syntax to store processed elements
-        jobs.put(value, "COMPLETED");
+    public int getProcessedJobs() {
+        return processedJobs;
     }
 }
